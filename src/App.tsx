@@ -341,6 +341,7 @@ export default function App() {
                 metrics={metrics}
                 recentQuotes={recentQuotes}
                 recentOrders={recentOrders}
+                currentUser={currentUser}
                 onNavigateTab={handleNavigateTab}
                 onSelectQuote={navigateToQuoteDetail}
                 onSelectOrder={navigateToOrderDetail}

@@ -1,0 +1,472 @@
+{
+  "users": [
+    {
+      "id": "usr_admin",
+      "name": "Dra. Helena Martins",
+      "email": "admin@otica.com",
+      "password": "admin",
+      "role": "ADMIN",
+      "avatarUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-08-12T14:38:14.345Z"
+    },
+    {
+      "id": "usr_atendente",
+      "name": "Lucas Andrade",
+      "email": "atendente@otica.com",
+      "password": "123",
+      "role": "ATENDENTE",
+      "avatarUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-08-27T14:38:14.345Z"
+    },
+    {
+      "id": "usr_1789137695898",
+      "name": "Julio Teste",
+      "email": "julio@otica.com",
+      "password": "teste",
+      "role": "ATENDENTE",
+      "createdAt": "2026-09-11T14:41:35.898Z"
+    }
+  ],
+  "clients": [
+    {
+      "id": "cli_1",
+      "name": "Carlos Eduardo Silveira",
+      "cpf": "128.495.839-20",
+      "phone": "(11) 98765-4321",
+      "email": "carlos.silveira@email.com",
+      "birthDate": "1985-06-14",
+      "notes": "Usuário experiente de lentes multifocais. Sensível a reflexos de tela de computador.",
+      "createdAt": "2026-08-17T14:38:14.345Z"
+    },
+    {
+      "id": "cli_2",
+      "name": "Mariana Costa Albuquerque",
+      "cpf": "349.201.758-45",
+      "phone": "(11) 97123-8899",
+      "email": "mariana.costa@email.com",
+      "birthDate": "1994-11-23",
+      "notes": "Prefere armações leves de acetato ou titânio. Pratica esportes ao ar livre.",
+      "createdAt": "2026-08-24T14:38:14.345Z"
+    },
+    {
+      "id": "cli_3",
+      "name": "Roberto Mendes Braga",
+      "cpf": "450.312.980-12",
+      "phone": "(21) 99876-5544",
+      "email": "roberto.braga@email.com",
+      "birthDate": "1972-03-08",
+      "notes": "Necessita de filtro de luz azul para trabalho diário em escritório contábil.",
+      "createdAt": "2026-09-01T14:38:14.345Z"
+    },
+    {
+      "id": "cli_4",
+      "name": "Juliana Peixoto de Oliveira",
+      "cpf": "512.634.119-87",
+      "phone": "(31) 98452-3311",
+      "email": "juliana.peixoto@email.com",
+      "birthDate": "2001-08-19",
+      "notes": "Primeiro par de óculos com grau. Acompanhou receita médica recente.",
+      "createdAt": "2026-09-07T14:38:14.345Z"
+    }
+  ],
+  "quotes": [
+    {
+      "id": "ORC-2026-0004",
+      "clientId": "cli_4",
+      "clientName": "Juliana Peixoto de Oliveira",
+      "clientPhone": "(31) 98452-3311",
+      "createdAt": "2026-09-10T14:38:14.346Z",
+      "serviceType": "Óculos de grau",
+      "prescription": {
+        "od": {
+          "spherical": "-1.00",
+          "cylindrical": "-0.25",
+          "axis": "90",
+          "pd": "31",
+          "addition": ""
+        },
+        "oe": {
+          "spherical": "-0.75",
+          "cylindrical": "-0.25",
+          "axis": "85",
+          "pd": "31",
+          "addition": ""
+        },
+        "doctorName": "Dra. Camila Nogueira (CRM 56214)",
+        "prescriptionDate": "2026-08-25"
+      },
+      "frame": {
+        "brand": "Ana Hickmann",
+        "model": "AH6398 Metal e Acetato",
+        "color": "Rosé com Marrom",
+        "code": "AH6398-G21",
+        "price": 650
+      },
+      "lens": {
+        "lensType": "Monofocal Digital",
+        "material": "Policarbonato 1.59",
+        "treatments": [
+          "Antirreflexo Premium",
+          "Proteção UV400"
+        ],
+        "price": 390
+      },
+      "serviceFee": 0,
+      "discount": 40,
+      "totalAmount": 1000,
+      "suggestedPayment": "Em até 5x de R$ 200,00 sem juros",
+      "notes": "Cliente aguardando confirmação do limite no cartão.",
+      "validityDays": 15,
+      "expiresAt": "2026-09-25T14:38:14.346Z",
+      "status": "Aguardando aprovação",
+      "createdBy": "Lucas Andrade"
+    },
+    {
+      "id": "ORC-2026-0002",
+      "clientId": "cli_2",
+      "clientName": "Mariana Costa Albuquerque",
+      "clientPhone": "(11) 97123-8899",
+      "createdAt": "2026-09-10T14:38:14.345Z",
+      "serviceType": "Óculos de sol",
+      "prescription": {
+        "od": {
+          "spherical": "0.00",
+          "cylindrical": "0.00",
+          "axis": "",
+          "pd": "30",
+          "addition": ""
+        },
+        "oe": {
+          "spherical": "0.00",
+          "cylindrical": "0.00",
+          "axis": "",
+          "pd": "30",
+          "addition": ""
+        }
+      },
+      "frame": {
+        "brand": "Oakley",
+        "model": "Holbrook Prizm Polarized",
+        "color": "Preto Fosco com Lente Sapphire",
+        "code": "OO9102-01",
+        "price": 780
+      },
+      "lens": {
+        "lensType": "Solar Polarizada Prizm",
+        "material": "Plutonite",
+        "treatments": [
+          "Polarizado",
+          "Espelhado Iridium"
+        ],
+        "price": 420
+      },
+      "serviceFee": 0,
+      "discount": 50,
+      "totalAmount": 1150,
+      "suggestedPayment": "Em até 6x de R$ 191,66 sem juros",
+      "notes": "Para uso em corrida e passeios na praia.",
+      "validityDays": 15,
+      "expiresAt": "2026-09-25T14:38:14.345Z",
+      "status": "Aguardando aprovação",
+      "createdBy": "Lucas Andrade"
+    },
+    {
+      "id": "ORC-2026-0001",
+      "clientId": "cli_1",
+      "clientName": "Carlos Eduardo Silveira",
+      "clientPhone": "(11) 98765-4321",
+      "createdAt": "2026-09-09T14:38:14.345Z",
+      "serviceType": "Óculos de grau",
+      "prescription": {
+        "od": {
+          "spherical": "-2.25",
+          "cylindrical": "-0.75",
+          "axis": "175",
+          "pd": "32",
+          "addition": "+2.00"
+        },
+        "oe": {
+          "spherical": "-2.00",
+          "cylindrical": "-0.50",
+          "axis": "180",
+          "pd": "31.5",
+          "addition": "+2.00"
+        },
+        "doctorName": "Dr. Marcelo Fagundes (CRM 45892)",
+        "prescriptionDate": "2026-08-20"
+      },
+      "frame": {
+        "brand": "Ray-Ban",
+        "model": "Clubmaster Classic Titanium",
+        "color": "Tartaruga com Dourado",
+        "code": "RB3016-W0365",
+        "price": 890
+      },
+      "lens": {
+        "lensType": "Multifocal Digital Premium",
+        "material": "Alto Índice 1.67",
+        "treatments": [
+          "Antirreflexo Crizal",
+          "Filtro Luz Azul",
+          "Proteção UV400"
+        ],
+        "price": 1150
+      },
+      "serviceFee": 0,
+      "discount": 100,
+      "totalAmount": 1940,
+      "suggestedPayment": "À vista no PIX com 5% de desconto (R$ 1.843,00) ou até 10x de R$ 194,00 no cartão",
+      "notes": "Cliente solicitou bordas polidas na lente e montagem expressa.",
+      "prescriptionPhotoUrl": "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=600&auto=format&fit=crop&q=80",
+      "validityDays": 15,
+      "expiresAt": "2026-09-24T14:38:14.345Z",
+      "status": "Aprovado",
+      "createdBy": "Dra. Helena Martins"
+    },
+    {
+      "id": "ORC-2026-0003",
+      "clientId": "cli_3",
+      "clientName": "Roberto Mendes Braga",
+      "clientPhone": "(21) 99876-5544",
+      "createdAt": "2026-09-06T14:38:14.346Z",
+      "serviceType": "Óculos de grau",
+      "prescription": {
+        "od": {
+          "spherical": "+1.75",
+          "cylindrical": "-0.50",
+          "axis": "45",
+          "pd": "32",
+          "addition": "+1.50"
+        },
+        "oe": {
+          "spherical": "+1.50",
+          "cylindrical": "-0.50",
+          "axis": "135",
+          "pd": "32",
+          "addition": "+1.50"
+        },
+        "doctorName": "Dr. Paulo Castro (CRM 31245)",
+        "prescriptionDate": "2026-08-01"
+      },
+      "frame": {
+        "brand": "Vogue Eyewear",
+        "model": "VO5338 Retangular",
+        "color": "Azul Marinho Translúcido",
+        "code": "VO5338-W656",
+        "price": 520
+      },
+      "lens": {
+        "lensType": "Monofocal Digital para Leitura",
+        "material": "Resina 1.56",
+        "treatments": [
+          "Filtro Luz Azul BlueProtect",
+          "Antirrisco"
+        ],
+        "price": 450
+      },
+      "serviceFee": 0,
+      "discount": 0,
+      "totalAmount": 970,
+      "suggestedPayment": "Em até 4x de R$ 242,50 sem juros",
+      "notes": "Aprovado via WhatsApp pelo cliente.",
+      "validityDays": 15,
+      "expiresAt": "2026-09-21T14:38:14.346Z",
+      "status": "Convertido em OS",
+      "convertedToOSId": "OS-2026-0001",
+      "createdBy": "Dra. Helena Martins"
+    }
+  ],
+  "serviceOrders": [
+    {
+      "id": "OS-2026-0003",
+      "clientId": "cli_2",
+      "clientName": "Mariana Costa Albuquerque",
+      "clientPhone": "(11) 97123-8899",
+      "serviceType": "Ajuste",
+      "prescription": {
+        "od": {
+          "spherical": "",
+          "cylindrical": "",
+          "axis": "",
+          "pd": "",
+          "addition": ""
+        },
+        "oe": {
+          "spherical": "",
+          "cylindrical": "",
+          "axis": "",
+          "pd": "",
+          "addition": ""
+        }
+      },
+      "frame": {
+        "brand": "Oakley",
+        "model": "Armação Solar existente",
+        "color": "Preto",
+        "code": "AJUSTE-01",
+        "price": 0
+      },
+      "lens": {
+        "lensType": "Sem troca de lentes",
+        "material": "-",
+        "treatments": [],
+        "price": 0
+      },
+      "status": "Aberta",
+      "createdAt": "2026-09-10T14:38:14.346Z",
+      "deliveryForecast": "2026-09-13",
+      "finalAmount": 120,
+      "paymentStatus": "Pendente",
+      "internalNotes": "Troca de plaquetas de silicone e alinhamento de hastes com aperto de parafusos.",
+      "createdBy": "Lucas Andrade"
+    },
+    {
+      "id": "OS-2026-0002",
+      "clientId": "cli_1",
+      "clientName": "Carlos Eduardo Silveira",
+      "clientPhone": "(11) 98765-4321",
+      "quoteId": "ORC-2026-0001",
+      "serviceType": "Óculos de grau",
+      "prescription": {
+        "od": {
+          "spherical": "-2.25",
+          "cylindrical": "-0.75",
+          "axis": "175",
+          "pd": "32",
+          "addition": "+2.00"
+        },
+        "oe": {
+          "spherical": "-2.00",
+          "cylindrical": "-0.50",
+          "axis": "180",
+          "pd": "31.5",
+          "addition": "+2.00"
+        },
+        "doctorName": "Dr. Marcelo Fagundes (CRM 45892)",
+        "prescriptionDate": "2026-08-20"
+      },
+      "frame": {
+        "brand": "Ray-Ban",
+        "model": "Clubmaster Classic Titanium",
+        "color": "Tartaruga com Dourado",
+        "code": "RB3016-W0365",
+        "price": 890
+      },
+      "lens": {
+        "lensType": "Multifocal Digital Premium",
+        "material": "Alto Índice 1.67",
+        "treatments": [
+          "Antirreflexo Crizal",
+          "Filtro Luz Azul",
+          "Proteção UV400"
+        ],
+        "price": 1150
+      },
+      "status": "Em produção",
+      "createdAt": "2026-09-09T14:38:14.346Z",
+      "deliveryForecast": "2026-09-14",
+      "finalAmount": 1940,
+      "paymentStatus": "Pendente",
+      "internalNotes": "Lentes enviadas para o laboratório de surfaçagem digital e aplicação de Crizal.",
+      "prescriptionPhotoUrl": "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=600&auto=format&fit=crop&q=80",
+      "createdBy": "Dra. Helena Martins"
+    },
+    {
+      "id": "OS-2026-0001",
+      "clientId": "cli_3",
+      "clientName": "Roberto Mendes Braga",
+      "clientPhone": "(21) 99876-5544",
+      "quoteId": "ORC-2026-0003",
+      "serviceType": "Óculos de grau",
+      "prescription": {
+        "od": {
+          "spherical": "+1.75",
+          "cylindrical": "-0.50",
+          "axis": "45",
+          "pd": "32",
+          "addition": "+1.50"
+        },
+        "oe": {
+          "spherical": "+1.50",
+          "cylindrical": "-0.50",
+          "axis": "135",
+          "pd": "32",
+          "addition": "+1.50"
+        },
+        "doctorName": "Dr. Paulo Castro (CRM 31245)",
+        "prescriptionDate": "2026-08-01"
+      },
+      "frame": {
+        "brand": "Vogue Eyewear",
+        "model": "VO5338 Retangular",
+        "color": "Azul Marinho Translúcido",
+        "code": "VO5338-W656",
+        "price": 520
+      },
+      "lens": {
+        "lensType": "Monofocal para Leitura e Tela",
+        "material": "Resina 1.56",
+        "treatments": [
+          "Filtro Luz Azul BlueProtect",
+          "Antirrisco"
+        ],
+        "price": 450
+      },
+      "status": "Pronta para retirada",
+      "createdAt": "2026-09-07T14:38:14.346Z",
+      "deliveryForecast": "2026-09-12",
+      "finalAmount": 970,
+      "paymentStatus": "Pago",
+      "internalNotes": "Montagem finalizada e conferida na lensometria. Óculos alinhado e estojo rígido original separado.",
+      "createdBy": "Dra. Helena Martins"
+    },
+    {
+      "id": "OS-2026-0004",
+      "clientId": "cli_4",
+      "clientName": "Juliana Peixoto de Oliveira",
+      "clientPhone": "(31) 98452-3311",
+      "serviceType": "Conserto",
+      "prescription": {
+        "od": {
+          "spherical": "",
+          "cylindrical": "",
+          "axis": "",
+          "pd": "",
+          "addition": ""
+        },
+        "oe": {
+          "spherical": "",
+          "cylindrical": "",
+          "axis": "",
+          "pd": "",
+          "addition": ""
+        }
+      },
+      "frame": {
+        "brand": "Armação Própria da Cliente",
+        "model": "Metal Tartaruga",
+        "color": "Dourado",
+        "code": "PROP-01",
+        "price": 0
+      },
+      "lens": {
+        "lensType": "Mantém lentes atuais",
+        "material": "-",
+        "treatments": [],
+        "price": 0
+      },
+      "status": "Entregue",
+      "createdAt": "2026-08-30T14:38:14.346Z",
+      "deliveryForecast": "2026-09-03",
+      "deliveredAt": "2026-09-04T14:38:14.346Z",
+      "finalAmount": 85,
+      "paymentStatus": "Pago",
+      "internalNotes": "Solda a laser na ponte nasal. Entregue perfeitamente polido e revisado.",
+      "clientSignature": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACgCAYAAAB0Jt0vAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATLSURBVHhe7d0xTsNQFETRliVLp+s/qCw",
+      "signatureDate": "2026-09-04T14:38:14.346Z",
+      "createdBy": "Dra. Helena Martins"
+    }
+  ],
+  "nextQuoteSeq": 5,
+  "nextOSSeq": 5
+}

@@ -1,4 +1,4 @@
-import { DashboardMetrics, Quote, ServiceOrder } from "../types";
+import { DashboardMetrics, Quote, ServiceOrder, User } from "../types";
 import { formatCurrency, formatDate, getQuoteStatusBadge, getOSStatusBadge } from "../lib/formatters";
 import {
   Clock,
@@ -13,12 +13,15 @@ import {
   Eye,
   CheckCircle2,
   Sparkles,
+  Users,
+  FileText,
 } from "lucide-react";
 
 interface DashboardViewProps {
   metrics: DashboardMetrics | null;
   recentQuotes: Quote[];
   recentOrders: ServiceOrder[];
+  currentUser: User | null;
   onNavigateTab: (tab: string, statusFilter?: string) => void;
   onSelectQuote: (quote: Quote) => void;
   onSelectOrder: (order: ServiceOrder) => void;
@@ -31,6 +34,7 @@ export function DashboardView({
   metrics,
   recentQuotes,
   recentOrders,
+  currentUser,
   onNavigateTab,
   onSelectQuote,
   onSelectOrder,
@@ -38,12 +42,14 @@ export function DashboardView({
   onNewOrder,
   onNewClient,
 }: DashboardViewProps) {
+  const isAdmin = currentUser?.role === "ADMIN";
   const pendingQuotes = metrics?.pendingQuotesCount || 0;
   const readyOS = metrics?.readyForPickupOSCount || 0;
   const inProductionOS = metrics?.inProductionOSCount || 0;
   const openOS = metrics?.openOSCount || 0;
   const dailyRevenue = metrics?.dailyRevenue || 0;
   const monthlyRevenue = metrics?.monthlyRevenue || 0;
+  const totalClients = metrics?.totalClientsCount || 0;
 
   return (
     <div className="space-y-6 pb-20 md:pb-8" id="dashboard-view">
@@ -219,35 +225,78 @@ export function DashboardView({
           </div>
         </div>
 
-        {/* Faturamento do Dia */}
-        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm" id="metric-daily-rev">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-500">Faturamento Hoje</span>
-            <div className="p-2 rounded-lg bg-emerald-50 text-emerald-700">
-              <DollarSign className="w-4 h-4" />
+        {/* Financial metrics for Admin OR Operational metrics for Atendente */}
+        {isAdmin ? (
+          <>
+            {/* Faturamento do Dia */}
+            <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm" id="metric-daily-rev">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-medium text-slate-500">Faturamento Hoje</span>
+                <div className="p-2 rounded-lg bg-emerald-50 text-emerald-700">
+                  <DollarSign className="w-4 h-4" />
+                </div>
+              </div>
+              <div className="mt-2">
+                <span className="text-xl font-bold text-slate-900 font-mono">
+                  {formatCurrency(dailyRevenue)}
+                </span>
+              </div>
             </div>
-          </div>
-          <div className="mt-2">
-            <span className="text-xl font-bold text-slate-900 font-mono">
-              {formatCurrency(dailyRevenue)}
-            </span>
-          </div>
-        </div>
 
-        {/* Faturamento do Mês */}
-        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm" id="metric-monthly-rev">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-500">Faturamento no Mês</span>
-            <div className="p-2 rounded-lg bg-blue-50 text-blue-700">
-              <TrendingUp className="w-4 h-4" />
+            {/* Faturamento do Mês */}
+            <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm" id="metric-monthly-rev">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-medium text-slate-500">Faturamento no Mês</span>
+                <div className="p-2 rounded-lg bg-blue-50 text-blue-700">
+                  <TrendingUp className="w-4 h-4" />
+                </div>
+              </div>
+              <div className="mt-2">
+                <span className="text-xl font-bold text-blue-900 font-mono">
+                  {formatCurrency(monthlyRevenue)}
+                </span>
+              </div>
             </div>
-          </div>
-          <div className="mt-2">
-            <span className="text-xl font-bold text-blue-900 font-mono">
-              {formatCurrency(monthlyRevenue)}
-            </span>
-          </div>
-        </div>
+          </>
+        ) : (
+          <>
+            {/* Clientes na Base (Atendente) */}
+            <div
+              onClick={() => onNavigateTab("clients")}
+              className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-blue-300 cursor-pointer transition-colors"
+              id="metric-clients-count"
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-medium text-slate-500">Clientes Cadastrados</span>
+                <div className="p-2 rounded-lg bg-blue-50 text-blue-700">
+                  <Users className="w-4 h-4" />
+                </div>
+              </div>
+              <div className="mt-2 flex items-baseline gap-1">
+                <span className="text-2xl font-bold text-slate-900 font-mono">{totalClients}</span>
+                <span className="text-xs text-slate-400">na base</span>
+              </div>
+            </div>
+
+            {/* Orçamentos Pendentes (Atendente) */}
+            <div
+              onClick={() => onNavigateTab("quotes", "Aguardando aprovação")}
+              className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-amber-300 cursor-pointer transition-colors"
+              id="metric-pending-quotes-count"
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-medium text-slate-500">Orçamentos Abertos</span>
+                <div className="p-2 rounded-lg bg-amber-50 text-amber-700">
+                  <FileText className="w-4 h-4" />
+                </div>
+              </div>
+              <div className="mt-2 flex items-baseline gap-1">
+                <span className="text-2xl font-bold text-slate-900 font-mono">{pendingQuotes}</span>
+                <span className="text-xs text-slate-400">aguardando</span>
+              </div>
+            </div>
+          </>
+        )}
       </div>
 
       {/* TWO COLUMN RECENT ITEMS */}
