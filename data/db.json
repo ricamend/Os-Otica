@@ -29,6 +29,16 @@
   ],
   "clients": [
     {
+      "id": "cli_1789141455539",
+      "name": "Ricardo Mendes Freitas",
+      "cpf": "273.850.862-67",
+      "phone": "(92) 98101-2234",
+      "email": "ricardo.especialiti@gmail.com",
+      "birthDate": "1966-07-01",
+      "notes": "",
+      "createdAt": "2026-09-11T15:44:15.539Z"
+    },
+    {
       "id": "cli_1",
       "name": "Carlos Eduardo Silveira",
       "cpf": "128.495.839-20",
