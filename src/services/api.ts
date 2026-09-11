@@ -3,17 +3,39 @@ import { Client, Quote, ServiceOrder, User, DashboardMetrics, QuoteStatus, OSSta
 const BASE_URL = "/api";
 
 async function request<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
-  const res = await fetch(`${BASE_URL}${endpoint}`, {
-    headers: {
-      "Content-Type": "application/json",
-      ...options.headers,
-    },
-    ...options,
-  });
+  let res: Response;
+  try {
+    res = await fetch(`${BASE_URL}${endpoint}`, {
+      headers: {
+        "Content-Type": "application/json",
+        ...options.headers,
+      },
+      ...options,
+    });
+  } catch (netErr: any) {
+    throw new Error(`Falha de conexão com o servidor: ${netErr.message || "Servidor indisponível"}`);
+  }
 
   if (!res.ok) {
-    const errorData = await res.json().catch(() => ({}));
-    throw new Error(errorData.message || `Erro na requisição: ${res.statusText}`);
+    let errorMsg = "";
+    try {
+      const errorData = await res.json();
+      errorMsg = errorData.message || errorData.error || "";
+    } catch {
+      // Non-JSON response
+    }
+
+    if (!errorMsg) {
+      if (res.status === 401) {
+        errorMsg = "E-mail ou senha incorretos.";
+      } else if (res.status === 404) {
+        errorMsg = "Serviço não encontrado (404).";
+      } else {
+        errorMsg = `Erro no servidor (${res.status}): ${res.statusText || "Falha na requisição"}`;
+      }
+    }
+
+    throw new Error(errorMsg);
   }
 
   return res.json();

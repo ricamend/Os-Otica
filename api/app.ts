@@ -451,11 +451,13 @@ apiRouter.get("/health", (req, res) => {
 
 // Auth Routes
 apiRouter.post("/auth/login", (req, res) => {
-  const { email, password } = req.body;
+  const { email, password } = req.body || {};
+  const cleanEmail = String(email || "").trim().toLowerCase();
+  const cleanPassword = String(password || "").trim();
   const db = readDb();
-  const user = db.users.find((u) => u.email.toLowerCase() === (email || "").toLowerCase());
+  const user = db.users.find((u) => (u.email || "").trim().toLowerCase() === cleanEmail);
 
-  if (!user || user.password !== password) {
+  if (!user || (user.password || "").trim() !== cleanPassword) {
     return res.status(401).json({ message: "E-mail ou senha incorretos." });
   }
 
