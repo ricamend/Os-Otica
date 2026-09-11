@@ -1,0 +1,7 @@
+{
+  "name": "Ótica Gestão - Orçamentos & Ordens de Serviço",
+  "description": "Sistema completo para ótica com gestão de clientes, orçamentos com fluxo de aprovação, ordens de serviço, receitas ópticas e assinatura digital.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
